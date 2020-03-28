@@ -2,25 +2,32 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
+function Photo(props) {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <img src={logo}
+      className="photo"
+      alt="stefan"
+    />
+  )
 }
 
-export default App;
+function EmployeeDetails(props) {
+  return (
+    <div className='employee-details'>
+      <p className='employee-full-name'>{props.employee.name}</p>
+      <p className='employee-position'>{props.employee.position}</p>
+      <p className='employee-seniority'>{props.employee.seniority}</p>
+    </div>
+  )
+}
+
+function EmployeeCard(props) {
+  return (
+    <div className="employee-info">
+      <Photo/>
+      <EmployeeDetails employee={props.employee}/>
+    </div>
+  )
+}
+
+export default EmployeeCard;
